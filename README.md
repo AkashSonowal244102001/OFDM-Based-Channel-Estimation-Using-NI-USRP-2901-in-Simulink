@@ -105,3 +105,15 @@ figure;
 subplot(3,1,1); stem(imp); title("Transmitted Impulse");
 subplot(3,1,2); plot(rx); title("Received Signal");
 subplot(3,1,3); plot(abs(r)); title("Cross-correlation");
+## 📊 Experimental Outputs
+
+The following figures show the real-time over-the-air channel estimation using NI USRP-2901.
+
+### 📌 Channel Impulse Response (CIR)
+![CIR](Outputs/screenshot_630.png)
+
+### 📌 Frequency Response
+![Frequency Response](Outputs/screenshot_631.png)
+
+### 📌 Received Signal Analysis
+![Signal](Outputs/screenshot_632.png)
