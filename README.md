@@ -113,19 +113,19 @@ The following figures show real-time over-the-air channel estimation using NI US
 
 ### 📌 Channel Impulse Response (CIR)
 
-![CIR](Outputs/Screenshot%20\(630\).png)
+![CIR](Outputs/Screenshot(630).png)
 
 ---
 
 ### 📌 Frequency Response
 
-![Frequency Response](Outputs/Screenshot%20\(631\).png)
+![Frequency Response](Outputs/Screenshot(631).png)
 
 ---
 
 ### 📌 Received Signal Analysis
 
-![Signal](Outputs/Screenshot%20\(632\).png)
+![Signal](Outputs/Screenshot(632).png)
 
 ---
 
