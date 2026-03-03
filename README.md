@@ -111,13 +111,13 @@ subplot(3,1,3); plot(abs(r)); title("Cross-correlation");
 
 The following figures show real-time over-the-air channel estimation using NI USRP-2901.
 
-### 📌 Channel Impulse Response (CIR)
+### 📌 Channel Gain Distribution
 ![CIR](Screenshot%20(630).png)
 
-### 📌 Frequency Response
+### 📌 Histogram of Channel Gains
 ![Frequency Response](Screenshot%20(631).png)
 
-### 📌 Received Signal Analysis
+### 📌 Channel Gain Distribution
 ![Signal](Screenshot%20(632).png)
 ## 🚀 Key Highlights
 
