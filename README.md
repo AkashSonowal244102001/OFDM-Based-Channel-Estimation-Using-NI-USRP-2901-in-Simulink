@@ -112,26 +112,13 @@ subplot(3,1,3); plot(abs(r)); title("Cross-correlation");
 The following figures show real-time over-the-air channel estimation using NI USRP-2901.
 
 ### 📌 Channel Impulse Response (CIR)
-
-<p align="center">
-  <img src="Outputs/Screenshot(630).png" width="600"/>
-</p>
-
----
+![CIR](Screenshot%20(630).png)
 
 ### 📌 Frequency Response
-
-<p align="center">
-  <img src="Outputs/Screenshot(631).png" width="600"/>
-</p>
-
----
+![Frequency Response](Screenshot%20(631).png)
 
 ### 📌 Received Signal Analysis
-
-<p align="center">
-  <img src="Outputs/Screenshot(632).png" width="600"/>
-</p>
+![Signal](Screenshot%20(632).png)
 ## 🚀 Key Highlights
 
 * Real-time over-the-air channel estimation using SDR
