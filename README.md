@@ -75,38 +75,99 @@ h[n] = \text{Channel Impulse Response}
 ---
 
 ## 📊 MATLAB Post-Processing
+clc;
+clear;
+close all;
 
-```matlab
-% Load received data
-rx = load("received_signal.txt");
+%% ===============================
+% 1. Read Channel Gain Samples
+% ================================
 
-% Generate transmitted impulse
-N = 1024;
-imp = zeros(N,1);
-imp(513) = 1;   % impulse index
+filePath = 'D:\Resume_Project\Channel_Gain_Estimation_Using_Single_Carrier\Matlab_Code\Channel_Gain_500_Samples.xlsx';
+gains = readmatrix(filePath);
 
-% Cross-correlation
-r = xcorr(rx, imp);
+N = length(gains);
 
-% Find delay
-[~, idx] = max(abs(r));
-delay_samples = idx - length(rx);
+disp(['Number of samples loaded: ', num2str(N)]);
 
-Fs = 1e6;
-delay_time = delay_samples / Fs;
+%% ===============================
+% 2. Plot Channel Gain vs Index
+% ================================
 
-fprintf("Estimated Delay (samples): %d\n", delay_samples);
-fprintf("Estimated Delay (seconds): %e\n", delay_time);
-
-% Plot results
 figure;
-subplot(3,1,1); stem(imp); title("Transmitted Impulse");
-subplot(3,1,2); plot(rx); title("Received Signal");
-subplot(3,1,3); plot(abs(r)); title("Cross-correlation");
-```
+plot(gains,'LineWidth',1.2);
+xlabel('Sample Index');
+ylabel('Channel Gain (Linear Scale)');
+title('Channel Gain Variation (Indoor LOS)');
+grid on;
 
----
+%% ===============================
+% 3. Plot Histogram (PDF Normalized)
+% ================================
 
+figure;
+histogram(gains,30,'Normalization','pdf');
+xlabel('Channel Gain');
+ylabel('Probability Density');
+title('Histogram of Channel Gains');
+grid on;
+hold on;
+
+%% ===============================
+% 4. Estimate Rician Parameters
+% ================================
+
+% Estimate mean and variance
+mu = mean(gains);
+variance = var(gains);
+
+disp(['Mean Gain: ', num2str(mu)]);
+disp(['Variance: ', num2str(variance)]);
+
+% Rough estimation of K-factor
+K_est = (mu^2 - variance) / (2*variance);
+K_dB_est = 10*log10(abs(K_est));
+
+disp(['Estimated K-factor (dB): ', num2str(K_dB_est)]);
+
+%% ===============================
+% 5. Generate Theoretical Rician PDF
+% ================================
+
+% Estimated parameters
+Omega = mu^2 + variance;
+K = abs(K_est);
+
+s = sqrt((K/(K+1))*Omega);
+sigma = sqrt(Omega/(2*(K+1)));
+
+x = linspace(min(gains), max(gains), 1000);
+
+% Rician PDF formula (manual)
+rician_pdf = (x./sigma.^2) .* ...
+    exp(-(x.^2 + s^2)/(2*sigma^2)) .* ...
+    besseli(0, x*s/(sigma^2));
+
+% Overlay PDF
+plot(x, rician_pdf,'r','LineWidth',2);
+legend('Measured Histogram','Estimated Rician PDF');
+
+grid on;
+
+%% ===============================
+% 6. Plot in dB scale (Optional)
+% ================================
+
+gains_dB = 20*log10(gains);
+
+figure;
+histogram(gains_dB,30,'Normalization','pdf');
+xlabel('Channel Gain (dB)');
+ylabel('Probability Density');
+title('Channel Gain Distribution in dB');
+grid on;
+
+disp('Analysis Complete.');
 ## 📊 Experimental Outputs
 
 The following figures show real-time over-the-air channel estimation using NI USRP-2901.
