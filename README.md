@@ -75,6 +75,8 @@ h[n] = \text{Channel Impulse Response}
 ---
 
 ## 📊 MATLAB Post-Processing
+
+```matlab
 clc;
 clear;
 close all;
@@ -117,14 +119,12 @@ hold on;
 % 4. Estimate Rician Parameters
 % ================================
 
-% Estimate mean and variance
 mu = mean(gains);
 variance = var(gains);
 
 disp(['Mean Gain: ', num2str(mu)]);
 disp(['Variance: ', num2str(variance)]);
 
-% Rough estimation of K-factor
 K_est = (mu^2 - variance) / (2*variance);
 K_dB_est = 10*log10(abs(K_est));
 
@@ -134,7 +134,6 @@ disp(['Estimated K-factor (dB): ', num2str(K_dB_est)]);
 % 5. Generate Theoretical Rician PDF
 % ================================
 
-% Estimated parameters
 Omega = mu^2 + variance;
 K = abs(K_est);
 
@@ -143,12 +142,10 @@ sigma = sqrt(Omega/(2*(K+1)));
 
 x = linspace(min(gains), max(gains), 1000);
 
-% Rician PDF formula (manual)
 rician_pdf = (x./sigma.^2) .* ...
     exp(-(x.^2 + s^2)/(2*sigma^2)) .* ...
     besseli(0, x*s/(sigma^2));
 
-% Overlay PDF
 plot(x, rician_pdf,'r','LineWidth',2);
 legend('Measured Histogram','Estimated Rician PDF');
 
@@ -168,6 +165,7 @@ title('Channel Gain Distribution in dB');
 grid on;
 
 disp('Analysis Complete.');
+```
 
 
 ## 📊 Experimental Outputs
