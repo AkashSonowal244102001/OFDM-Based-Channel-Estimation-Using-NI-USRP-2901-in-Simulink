@@ -170,6 +170,10 @@ disp('Analysis Complete.');
    ### 📌 Transmitter Design for NI-Labview for NI USRP 2901
 ![CIR](TX_Design.png)
 
+## 📊 Channel Statistics Outputs after Simulation
+![CIR](Screenshot%20(630).png)
+
+
 ## 📊 Experimental Outputs
 
 The following figures show real-time over-the-air channel estimation using NI USRP-2901.
