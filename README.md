@@ -180,6 +180,19 @@ The following figures show real-time over-the-air channel estimation using NI US
 
 ### 📌 Channel Gain Distribution
 ![Signal](Screenshot%20(632).png)
+
+
+### 📌 Channel Gain Distribution
+![CIR](Screenshot%20(642).png)
+
+### 📌 Histogram of Channel Gains
+![Frequency Response](Screenshot%20(643).png)
+
+### 📌 Channel Gain Distribution
+![Signal](Screenshot%20(644).png)
+
+### 📌 Channel Gain Distribution
+![Signal](Screenshot%20(645).png)
 ## 🚀 Key Highlights
 
 * Real-time over-the-air channel estimation using SDR
