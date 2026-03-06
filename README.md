@@ -191,7 +191,7 @@ The following figures show real-time over-the-air channel estimation using NI US
 ### 📌 Channel Gain Distribution
 ![Signal](Screenshot%20(644).png)
 
-### 📌 Channel Gain Distribution
+### 📌 Multipath Component Variation
 ![Signal](Screenshot%20(645).png)
 ## 🚀 Key Highlights
 
