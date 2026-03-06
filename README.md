@@ -182,7 +182,7 @@ The following figures show real-time over-the-air channel estimation using NI US
 ![Signal](Screenshot%20(632).png)
 
 
-### 📌 Channel Gain Distribution
+### 📌 Channel Gain Variation
 ![CIR](Screenshot%20(642).png)
 
 ### 📌 Histogram of Channel Gains
