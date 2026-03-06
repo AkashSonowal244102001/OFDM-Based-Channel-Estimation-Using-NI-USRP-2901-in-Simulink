@@ -171,7 +171,7 @@ disp('Analysis Complete.');
 ![CIR](TX_Design.png)
 
 ## 📊 Channel Statistics Outputs after Simulation
-![CIR](Screenshot%20(630).png)
+![CIR](Channel_Properties.png)
 
 
 ## 📊 Experimental Outputs
