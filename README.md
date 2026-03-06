@@ -168,7 +168,7 @@ disp('Analysis Complete.');
 ```
 ## 📊 NI_LabView Design
    ### 📌 Transmitter Design for NI-Labview for NI USRP 2901
-![CIR](TX-Design.png)
+![CIR](TX_Design.png)
 
 ## 📊 Experimental Outputs
 
